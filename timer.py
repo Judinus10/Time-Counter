@@ -31,5 +31,11 @@ sec=StringVar() #seconds
 Entry(root,textvariable=sec,width=2,font="arial 50",bg="#000",fg="#fff",bd=0).place(x=270,y=155)
 sec.set("00")
 
+Label(root,text="Hours",font="arial 12",bg="#000",fg="#fff").place(x=105,y=200)
+Label(root,text="Mins",font="arial 12",bg="#000",fg="#fff").place(x=225,y=200)
+Label(root,text="Sec",font="arial 12",bg="#000",fg="#fff").place(x=345,y=200)
+
+
+
 root.mainloop()
 
