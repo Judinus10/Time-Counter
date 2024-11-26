@@ -35,7 +35,30 @@ Label(root,text="Hours",font="arial 12",bg="#000",fg="#fff").place(x=105,y=200)
 Label(root,text="Mins",font="arial 12",bg="#000",fg="#fff").place(x=225,y=200)
 Label(root,text="Sec",font="arial 12",bg="#000",fg="#fff").place(x=345,y=200)
 
+def timer():
+    times=int(hrs.get())*3600+int(mins.get())*60+int(sec.get())
 
+    while times > -1:
+        minute ,second=(times//60, times %60)
+
+        hours=00
+        if minute>60:
+            hours,minute=(minute//60,minute%60)
+
+        sec.set(second)
+        mins.set(minute)
+        hrs.set(hours)
+
+        root.update()
+        time.sleep(1)
+
+        if(time==0):
+            playsound("assets/audio/open.mp3")
+            sec.set(00)
+            mins.set(00)
+            hrs.set(00)
+
+        times -=1
 
 def brush():
     hrs.set("00")
@@ -52,7 +75,7 @@ def eggs():
     mins.set("10")
     sec.set("00")
 
-button=Button(root,text="Start",bg="#ea3548",bd=0,fg="#fff",width=20,height=2,font="arial 10 bold")
+button=Button(root,text="Start",bg="#ea3548",bd=0,fg="#fff",width=20,height=2,font="arial 10 bold",command=timer )
 button.pack(padx=5,pady=40,side=BOTTOM)
 
 Image1=PhotoImage(file="assets/images/brush.png")
