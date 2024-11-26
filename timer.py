@@ -37,9 +37,35 @@ Label(root,text="Sec",font="arial 12",bg="#000",fg="#fff").place(x=345,y=200)
 
 
 
-button=Button(root,text="Start",bg="#ea3548",bd=0,fg="#fff",width=20,height=2,font="arial 10 bold" )
+def brush():
+    hrs.set("00")
+    mins.set("02")
+    sec.set("00")
+
+def face():
+    hrs.set("00")
+    mins.set("15")
+    sec.set("00")
+
+def eggs():
+    hrs.set("00")
+    mins.set("10")
+    sec.set("00")
+
+button=Button(root,text="Start",bg="#ea3548",bd=0,fg="#fff",width=20,height=2,font="arial 10 bold")
 button.pack(padx=5,pady=40,side=BOTTOM)
 
+Image1=PhotoImage(file="assets/images/brush.png")
+button1=Button(root,image=Image1,bg="#000",bd=0,command=brush)
+button1.place(x=7,y=300)
+
+Image2=PhotoImage(file="assets/images/face.png")
+button2=Button(root,image=Image2,bg="#000",bd=0,command=face)
+button2.place(x=137,y=300)
+
+Image3=PhotoImage(file="assets/images/eggs.png")
+button3=Button(root,image=Image3,bg="#000",bd=0,command=eggs)
+button3.place(x=267,y=300)
 
 root.mainloop()
 
