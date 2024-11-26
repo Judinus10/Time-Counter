@@ -37,5 +37,9 @@ Label(root,text="Sec",font="arial 12",bg="#000",fg="#fff").place(x=345,y=200)
 
 
 
+button=Button(root,text="Start",bg="#ea3548",bd=0,fg="#fff",width=20,height=2,font="arial 10 bold" )
+button.pack(padx=5,pady=40,side=BOTTOM)
+
+
 root.mainloop()
 
