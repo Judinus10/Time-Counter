@@ -36,6 +36,15 @@ Label(root,text="Mins",font="arial 12",bg="#000",fg="#fff").place(x=225,y=200)
 Label(root,text="Sec",font="arial 12",bg="#000",fg="#fff").place(x=345,y=200)
 
 def timer():
+    button.pack_forget()
+
+    pauseButton = Button(root, text="Pause", bg="#ea3548", bd=0, fg="#fff", width=10, height=2, font="arial 10 bold", command=pauseTimer)
+    pauseButton.place(x=50, y=500)
+    resumeButton = Button(root, text="Resume", bg="#ea3548", bd=0, fg="#fff", width=10, height=2, font="arial 10 bold", command=resumeTimer)
+    resumeButton.place(x=150, y=500)
+    stopButton = Button(root, text="Stop", bg="#ea3548", bd=0, fg="#fff", width=10, height=2, font="arial 10 bold", command=stopTimer)
+    stopButton.place(x=250, y=500)
+
     times=int(hrs.get())*3600+int(mins.get())*60+int(sec.get())
 
     while times > -1:
@@ -59,6 +68,15 @@ def timer():
             hrs.set(00)
 
         times -=1
+
+def pauseTimer():
+    pass
+
+def resumeTimer():
+    pass
+
+def stopTimer():
+    pass
 
 def brush():
     hrs.set("00")
