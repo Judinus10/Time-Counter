@@ -127,7 +127,12 @@ Image3=PhotoImage(file="assets/images/eggs.png")
 button3=Button(root,image=Image3,bg="#000",bd=0,command=eggs)
 button3.place(x=267,y=300)
 
+def on_close():
+    global running
+    running = False  # Stop the timer loop
+    root.destroy() 
 
+root.protocol("WM_DELETE_WINDOW", on_close)
 
 root.mainloop()
 
