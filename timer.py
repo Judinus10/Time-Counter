@@ -45,9 +45,18 @@ def timer():
     stopButton = Button(root, text="Stop", bg="#ea3548", bd=0, fg="#fff", width=10, height=2, font="arial 10 bold", command=stopTimer)
     stopButton.place(x=250, y=500)
 
+    global running, paused, remaining_time
+    running = True
+    paused = False
+
     times=int(hrs.get())*3600+int(mins.get())*60+int(sec.get())
 
-    while times > -1:
+    while times > -1 and running:
+        if paused:
+            root.update()
+            time.sleep(1)
+            continue
+
         minute ,second=(times//60, times %60)
 
         hours=00
@@ -69,14 +78,24 @@ def timer():
 
         times -=1
 
+running = False
+paused = False
+remaining_time = 0
+
 def pauseTimer():
-    pass
+    global paused
+    paused = True
 
 def resumeTimer():
-    pass
+    global paused
+    paused = False
 
 def stopTimer():
-    pass
+    global running
+    running = False
+    sec.set("00")
+    mins.set("00")
+    hrs.set("00")
 
 def brush():
     hrs.set("00")
@@ -107,6 +126,8 @@ button2.place(x=137,y=300)
 Image3=PhotoImage(file="assets/images/eggs.png")
 button3=Button(root,image=Image3,bg="#000",bd=0,command=eggs)
 button3.place(x=267,y=300)
+
+
 
 root.mainloop()
 
